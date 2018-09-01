@@ -1,0 +1,35 @@
+<div class="col">
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="gallery">Gallery</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i [innerHTML]="'aperture' | feather: '20': 'black'"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i [innerHTML]="'camera' | feather: '20': 'black'"></i>
+        </a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i [innerHTML]="'facebook' | feather: '20': 'black'"></i>
+        </a>
+      </li>
+  </ul>
+
+  <div class="col mb-4" *ngIf="router.url != '/'">
+    <a routerLink="/" id="title">
+    <h2>HAFID-AZZOUZ</h2>
+    <span>INFOGRAPHISTE - PHOTOGRAPHE</span>
+  </a>
+  </div>
+</div>

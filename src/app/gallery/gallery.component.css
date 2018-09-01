@@ -1,0 +1,14 @@
+
+.nav-fill{
+    height: 100%;
+  
+}
+
+ .nav-item{
+    transform: rotate(-90deg);
+    transform-origin: left top 0;
+}
+
+#sideBar{
+    margin-top: 100px;
+}
