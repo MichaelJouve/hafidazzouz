@@ -8,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-sideMenu:boolean = true;
+sideMenu = true;
 
   constructor() { }
 
   ngOnInit() {
     // hide sideBar
-    if(window.screen.width <= 767) {
+    if (window.screen.width <= 767) {
       this.sideMenu = false;
     }
   }
