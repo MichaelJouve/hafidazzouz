@@ -1,1 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <h3 class="nav-link active" href="#">Home</h3>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">truc page</a>
+                    </li>
+                    <li class="nav-item">
+                        <h3 class="nav-link active" href="#">Galleries</h3>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Marriage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nature</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portrait</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
+        <div class="col">
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" class="form-control-file" accept=".png,.jpg,.jpeg" (change)="uploadFile($event)">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Example select</label>
+                        <select class="form-control">
+                            <option *ngFor="let gallery of galleries">{{ gallery.name }}</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

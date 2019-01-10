@@ -1,23 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { SideMenuComponent } from './side-menu/side-menu.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { GalleryWeddingComponent } from './gallery-wedding/gallery-wedding.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { FeatherIconsPipe } from './feather-pipe';
-import { AuthService } from './services/auth.service';
-import { HeaderComponent } from './header/header.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
-
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { environment } from 'src/environments/environment';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AppComponent } from './app.component';
+import { FeatherIconsPipe } from './feather-pipe';
+import { FooterComponent } from './footer/footer.component';
+import { GalleryWeddingComponent } from './gallery-wedding/gallery-wedding.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { AuthService } from './services/auth.service';
+import { DatabaseService } from './services/database.service';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AngularFireStorage } from 'angularfire2/storage';
+
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,11 +50,12 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
-
+    AngularFireAuthModule,
+    AngularFireStorage,
   ],
   providers: [
     AuthService,
+    DatabaseService,
   ],
   bootstrap: [AppComponent],
 })

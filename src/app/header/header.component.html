@@ -25,6 +25,11 @@
         </a>
       </li>
       <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link" routerLink="adminHome">
+            <i [innerHTML]="'settings' | feather: '20': 'black'"></i>
+          </a>
+        </li>
+      <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" href="#" (click)='logout()'>Logout</a>
       </li>
   </ul>
