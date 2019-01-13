@@ -6,20 +6,13 @@
                     <li class="nav-item">
                         <h3 class="nav-link active" href="#">Home</h3>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">truc page</a>
-                    </li>
+
                     <li class="nav-item">
                         <h3 class="nav-link active" href="#">Galleries</h3>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Marriage</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nature</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Portrait</a>
+                    <li class="nav-item" *ngFor="let gallery of galleries">
+                        <a class="nav-link" href="#">{{ gallery.name }}</a>
+                        <button class='btn' (click)='toto()'>TEST</button>
                     </li>
                 </ul>
             </nav>
@@ -32,7 +25,7 @@
                     <input type="file" class="form-control-file" accept=".png,.jpg,.jpeg" (change)="uploadFile($event)">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Example select</label>
-                        <select class="form-control">
+                        <select class="form-control" #galleryName>
                             <option *ngFor="let gallery of galleries">{{ gallery.name }}</option>
                         </select>
                     </div>
@@ -41,3 +34,6 @@
         </div>
     </div>
 </div>
+<mat-form-field>
+    <input matInput value="Disco party!" placeholder="Message" #message>
+  </mat-form-field>

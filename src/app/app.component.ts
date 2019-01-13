@@ -25,7 +25,6 @@ export class AppComponent {
         this.isLogged = true;
         this.email = auth.email;
         console.log('Connecté');
-        console.log(auth);
 
       } else {
         console.log('Déconnecté');

@@ -22,4 +22,8 @@ describe('AdminHomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Sould have some Gallery', () => {
+    expect(component.galleries.length).toBeGreaterThan(0);
+  });
 });
