@@ -12,28 +12,22 @@
                     </li>
                     <li class="nav-item" *ngFor="let gallery of galleries">
                         <a class="nav-link" href="#">{{ gallery.name }}</a>
-                        <button class='btn' (click)='toto()'>TEST</button>
                     </li>
                 </ul>
             </nav>
         </div>
-
         <div class="col">
-            <form>
+            <form enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="exampleFormControlFile1">Example file input</label>
-                    <input type="file" class="form-control-file" accept=".png,.jpg,.jpeg" (change)="uploadFile($event)">
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Example select</label>
-                        <select class="form-control" #galleryName>
-                            <option *ngFor="let gallery of galleries">{{ gallery.name }}</option>
-                        </select>
-                    </div>
+                    <label for="choseGallery">Gallerie</label>
+                    <select id="choseGallery" class="form-control" #galleryName required>
+                        <option *ngFor="let gallery of galleries">{{ gallery.name }}</option>
+                    </select>
+                    <label for="chosePictures">Ajouter des photos</label>
+                    <input id="chosePictures" type="file" class="form-control-file" accept=".png,.jpg,.jpeg" (change)="uploadPicturesInGalleries($event)" multiple
+                        required>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<mat-form-field>
-    <input matInput value="Disco party!" placeholder="Message" #message>
-  </mat-form-field>

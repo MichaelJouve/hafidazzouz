@@ -30,24 +30,25 @@ export class AdminHomeComponent implements OnInit {
     this.authService.logout();
   }
 
-  private uploadFile(event) {
-    const file = event.target.files[0];
-    if (file) {
-      this.databaseService.savePicture(file, this.galleryName.nativeElement.value).then(() => {
-        console.log('toto');
-        this.snackBar.open('Done', 'toto');
-      },
-        error => {
-          this.snackBar.open(error, '', {
-            // panelClass: 'dangerSnackBar'
-          });
-        }
-      );
+  // Used to upload files to a specific gallery in 'galleries/'
+  private uploadPicturesInGalleries(event) {
+    const files = event.target.files;
+
+    for ( let i = 0; i < files.length; i++) {
+      if (files[i] && this.galleryName.nativeElement.value) {
+        const picture = files[i];
+        const pathAndPictureName = 'galleries/' + this.galleryName.nativeElement.value + '/' + picture.name;
+
+        this.databaseService.savePicture(picture, pathAndPictureName).then(() => {
+          this.snackBar.open('Upload de ' + picture.name + ' terminé', '');
+        },
+          error => {
+            this.snackBar.open(error, '', {
+              // panelClass: 'dangerSnackBar'
+            });
+          }
+        );
+      }
     }
-  }
-  public toto() {
-    this.snackBar.open('Done', '', {
-      panelClass: 'dangerSnackBar'
-    });
   }
 }

@@ -3,7 +3,6 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFirestore, fromDocRef} from '@angular/fire/firestore';
 import { Gallery } from '../models/gallery.model';
 import { Observable, of } from 'rxjs';
-import { database } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +16,16 @@ galleriesObs: Observable<Gallery[]> = of(null);
      }
 
 
-
-  public savePicture(file, galleryId) {
+/**
+ * Save file in bdd
+ * @param file
+ * @param pathAndPictureName
+ */
+  public savePicture(file, pathAndPictureName) {
     return new Promise(((resolve, reject) => {
-      console.log('dans savePicture');
       const storageRef = this.fireStorage.storage.ref();
-      const fileRef = storageRef.child('galleries/' + galleryId);
+      const path: string = pathAndPictureName + '/';
+      const fileRef = storageRef.child(path);
       fileRef.put(file)
         .then(() => {
           resolve();
@@ -33,6 +36,11 @@ galleriesObs: Observable<Gallery[]> = of(null);
     }));
   }
 
+  /**
+   * Add new gallery in bdd
+   * 'galleries' is the collection name
+   * @param newGallery
+   */
   public addGallery(newGallery: Gallery) {
     this.fireDatabase.collection('galleries').add({
       name: newGallery.name,

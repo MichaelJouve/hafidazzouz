@@ -8,7 +8,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireStorageModule} from 'angularfire2/storage';
 
-import { environment } from 'src/environments/environment'; // dossier environnement à refaire...
+import { environment } from 'src/environments/environment';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AppComponent } from './app.component';
 import { FeatherIconsPipe } from './feather-pipe';
