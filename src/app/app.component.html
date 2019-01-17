@@ -1,13 +1,27 @@
-<body class="container">
+<body class="container"  *ngIf="!mobileDevice">
 
   <app-header [isLogged]='isLogged'></app-header>
 
-  <div class="row">
-
+  <div class="container">
     <router-outlet></router-outlet>
-
   </div>
-<div class='fixed-bottom'>
-  <app-footer></app-footer>
-</div>
+  
+  <div class='fixed-bottom'>
+    <app-footer></app-footer>
+  </div>
 </body>
+
+<!-- mobile -->
+<body class="container-fluid"  *ngIf="mobileDevice">
+
+  <app-header [isLogged]='isLogged'></app-header>
+
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <div class='fixed-bottom'>
+    <app-footer></app-footer>
+  </div>
+</body>
+

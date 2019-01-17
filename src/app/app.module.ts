@@ -22,6 +22,7 @@ import { DatabaseService } from './services/database.service';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
+import { AdminGalleriesComponent } from './admin/admin-galleries/admin-galleries.component';
 
 
 
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     FeatherIconsPipe,
     SignInComponent,
     AdminHomeComponent,
+    AdminGalleriesComponent,
 
   ],
   imports: [

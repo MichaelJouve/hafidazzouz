@@ -1,0 +1,18 @@
+<table class="table table-dark">
+  <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Nb photos</th>
+          <th scope="col">Dernière modification</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let gallery of galleries" [routerLink]="[ '/editGallery', routeParam ]">
+          <th scope="row">1</th>
+          <td>{{ gallery.name }}</td>
+          <td>{{ gallery.numberOfPictures }}</td>
+          <td>{{ gallery.lastUpdate }}</td>
+      </tr>
+  </tbody>
+</table>

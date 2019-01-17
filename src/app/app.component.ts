@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
@@ -9,8 +9,9 @@ import * as firebase from 'firebase/app';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'hafidazzouz';
+  @Output() mobileDevice: boolean;
 
   public user: Observable<firebase.User>;
   isLogged = false;
@@ -32,6 +33,13 @@ export class AppComponent {
         this.email = '';
       }
     });
+  }
+  ngOnInit(): void {
+    // check screen size. If small
+    this.mobileDevice = false;
+    if (window.innerWidth < 768) {
+      this.mobileDevice = true;
+    }
   }
 
 }

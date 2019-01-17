@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireStorage} from '@angular/fire/storage';
-import {AngularFirestore, fromDocRef} from '@angular/fire/firestore';
+import {AngularFirestore} from '@angular/fire/firestore';
 import { Gallery } from '../models/gallery.model';
 import { Observable, of } from 'rxjs';
 
