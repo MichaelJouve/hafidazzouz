@@ -8,7 +8,7 @@
       </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let gallery of galleries" [routerLink]="[ '/editGallery', routeParam ]">
+      <tr *ngFor="let gallery of galleries" [routerLink]="[ 'editGallery', gallery ]">
           <th scope="row">1</th>
           <td>{{ gallery.name }}</td>
           <td>{{ gallery.numberOfPictures }}</td>
