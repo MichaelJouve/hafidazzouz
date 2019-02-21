@@ -10,7 +10,7 @@ export class GalleryComponent implements OnInit {
 
 sideMenu = true;
 
-  constructor() { }
+  constructor(name: String) { }
 
   ngOnInit() {
     // hide sideBar

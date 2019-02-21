@@ -1,9 +1,9 @@
 
 export class Gallery {
-    id: string;
+    id?: string;
     name: string;
     visible ? = true;
     lastUpdate?: Date;
-    numberOfPictures: Number;
+    numberOfPictures?: Number;
 
 }

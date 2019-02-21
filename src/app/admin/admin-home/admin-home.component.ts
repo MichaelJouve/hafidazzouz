@@ -1,24 +1,21 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth.service';
 import { DatabaseService } from 'src/app/services/database.service';
-import { Gallery } from 'src/app/models/gallery.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatDialog} from '@angular/material';
+
 
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
   styleUrls: ['./admin-home.component.css']
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminHomeComponent {
 
   // @ViewChild('galleryName')
 
-  constructor(private authService: AuthService, private databaseService: DatabaseService, private snackBar: MatSnackBar) { }
+  constructor() { }
+  
 
-  ngOnInit() {
   }
 
-
-
-
-}

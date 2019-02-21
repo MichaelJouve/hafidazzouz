@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
 
-  email = '';
-  password = '';
+  public email = '';
+  public password = '';
 
   authenticationFailed = false;
 
@@ -25,10 +25,12 @@ export class SignInComponent implements OnInit {
     this.authService.loginWithEmail(this.email, this.password).then(user => this.router.navigate(['adminHome']),
       error => {
       this.authenticationFailed = true;
+      console.log(error);
         alert(error);
       }
     );
   }
+
 
   loginWithGoogle() {
     this.authenticationFailed = false;

@@ -1,10 +1,11 @@
-<table class="table table-dark">
+<table class="table table-striped">
   <thead>
       <tr>
           <th scope="col">#</th>
           <th scope="col">Nom</th>
           <th scope="col">Nb photos</th>
           <th scope="col">Dernière modification</th>
+          <th><button class="btn btn-success" (click)="openModalAddGallery()">Ajouter</button></th>
       </tr>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
           <td>{{ gallery.name }}</td>
           <td>{{ gallery.numberOfPictures }}</td>
           <td>{{ gallery.lastUpdate }}</td>
+          <td><button class="btn btn-warning" (click)="editGallery(Gallery.name)">Modifier</button></td>
       </tr>
   </tbody>
 </table>

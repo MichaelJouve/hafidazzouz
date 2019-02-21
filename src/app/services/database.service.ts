@@ -19,9 +19,9 @@ galleriesObs: Observable<Gallery[]> = of(null);
 /**
  * Save file in bdd
  * @param file
- * @param pathAndPictureName
+ * @param pathAndPictureName: String
  */
-  public savePicture(file, pathAndPictureName) {
+  public savePicture(file, pathAndPictureName: String) {
     return new Promise(((resolve, reject) => {
       const storageRef = this.fireStorage.storage.ref();
       const path: string = pathAndPictureName + '/';
@@ -41,17 +41,23 @@ galleriesObs: Observable<Gallery[]> = of(null);
    * 'galleries' is the collection name
    * @param newGallery
    */
-  public addGallery(newGallery: Gallery) {
-    this.fireDatabase.collection('galleries').add({
-      name: newGallery.name,
-      visible: newGallery.visible,
+  public addGallery(newGalleryName: String) {
+      this.fireDatabase.collection('galleries').add({
+      name: newGalleryName,
+      visible: true,
     })
       .then((docRef) => {
+        this.galleriesObs.subscribe();
       },
       (error) => {
-        console.error('Error adding document: ', error);
+        console.error('Error adding gallery: ', error);
       });
   }
 
+  public checkIfGalleryExist( galleryName ): Boolean {
+    console.log(this.galleriesObs);
+
+    if (this.galleriesObs[galleryName]) { console.log('trueee'); return true; } else {console.log('falseeee'); return false; }
+  }
 
 }

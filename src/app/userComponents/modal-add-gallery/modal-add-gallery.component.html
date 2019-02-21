@@ -1,0 +1,8 @@
+<form #addGalleryForm="ngForm">
+  <div class="form-group">
+    <label for="addGallery">Nom de la nouvelle gallerie :</label>
+    <input type="text" class="form-control" id="addGallery" placeholder="Nom nouvelle gallerie" #name="ngModel" [(ngModel)]="nameNewGallery" name="addGallery" required>
+  </div>
+  <button type="submit" class="btn btn-success" (click)="addNewGallery()" [disabled]="!addGalleryForm.form.valid">Envoyez</button>
+  <button type="button" class="btn btn-default" (click)="closeModal()">Annuler</button>
+</form>

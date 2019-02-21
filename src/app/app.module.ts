@@ -21,10 +21,12 @@ import { AuthService } from './services/auth.service';
 import { DatabaseService } from './services/database.service';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 import { AdminGalleriesComponent } from './admin/admin-galleries/admin-galleries.component';
 import { AdminEditGalleryComponent } from './admin/admin-edit-gallery/admin-edit-gallery.component';
-
+import { ModalAddGalleryComponent } from './userComponents/modal-add-gallery/modal-add-gallery.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -52,6 +54,7 @@ const appRoutes: Routes = [
     AdminHomeComponent,
     AdminGalleriesComponent,
     AdminEditGalleryComponent,
+    ModalAddGalleryComponent,
 
   ],
   imports: [
@@ -64,6 +67,8 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     AngularFireStorageModule,
     MatSnackBarModule,
+    MatDialogModule,
+    FormsModule,
   ],
   providers: [
     AuthService,
@@ -71,5 +76,9 @@ const appRoutes: Routes = [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 4000}},
   ],
   bootstrap: [AppComponent],
+
+  entryComponents: [
+    ModalAddGalleryComponent,
+  ],
 })
 export class AppModule { }

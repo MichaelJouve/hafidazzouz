@@ -1,7 +1,9 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Output } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { Gallery } from 'src/app/models/gallery.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ModalAddGalleryComponent } from 'src/app/userComponents/modal-add-gallery/modal-add-gallery.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-admin-galleries',
@@ -9,9 +11,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./admin-galleries.component.css']
 })
 export class AdminGalleriesComponent implements OnInit {
-  galleries: Gallery[];
+  public galleries: Gallery[];
 
-  constructor(private databaseService: DatabaseService, private snackBar: MatSnackBar) { }
+  constructor(private databaseService: DatabaseService, 
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog) { }
   galleryName: ElementRef;
 
   ngOnInit() {
@@ -21,6 +25,18 @@ export class AdminGalleriesComponent implements OnInit {
       }
     });
   }
+
+ public openModalAddGallery(): void {
+    const dialogRef = this.dialog.open(ModalAddGalleryComponent, {
+      data: this.galleries,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    }
+
+
 
   // Used to upload files to a specific gallery in 'galleries/'
   private uploadPicturesInGalleries(event) {
